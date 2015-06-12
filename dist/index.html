@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<nav>
+		<div class="circle"><div class="cross">+</div>
+		</div>
+	</nav>
+	<div class="container">		
+			<form id="form-info">
+				<div class="row">
+					<div id="error">Wrong file format!</div>
+					<input type="text" placeholder="Image URL" id="input-img">
+					<textarea type="text" placeholder="Image caption" id="input-caption"></textarea>
+					<button id="btn1" type="submit">Add Image</button>
+					<button id="cancel-btn">Cancel</button>	
+				</div>		
+			</form>
+		<section class="img-holder">
+			<div class="inner"></div>
+				<!-- <div class="comments"></div> -->
+		</section>
+	</div>
+
+<script type="text/template" class="img-template" >
+	<section class="images">
+		<div class="image-style"><img src="<%= model.get('url') %>"></div>
+		<div class="caption-style"><%= model.get('caption') %></div>
+		<div class="comment-section" data-form="<%= model.cid %>">
+			<span></span>
+			<form class="comment-form"  type="submit"  >
+				<input class="comment-input"  type="text"placeholder="Add Comments" >
+				<button class="comment-btn"  >Add</button>
+			</form>
+			<div class="comment-list"></div>
+		</div>
+	</section>
+</script>
+<script type="text/template" class="comment-template" >
+	<div class="comments" data-comment="<%= model.cid %>">
+		<%= model.get('message') %>
+	</div>
+</script>
+
+
+
+<script type="text/javascript" src="scripts/all.js"></script>
+</body>
+</html>
